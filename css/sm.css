@@ -144,13 +144,13 @@ body {
   text-decoration:none;
   padding:4px 6px;
   border-radius:6px;
-  background-color:rgba(92,200,255,.08);
+ background-color:rgba(252, 248, 5, 0.521);
   margin-bottom:4px;
   transition:background .3s;
 }
 
 .table td a:hover{
-  background-color:rgba(92,200,255,.2);
+  background-color:rgba(13, 160, 233, 0.904);
 }
 
 /* تحسين الجدول على الهواتف */
@@ -278,5 +278,6 @@ body {
     justify-content: center;
   }
 }
+
 
 
