@@ -1,6 +1,6 @@
 :root{
-  --bg:#07142a; --bg-2:#0b233f; --card:#0f2646; --muted:#93a8c6; --text:#eaf3ff;
-  --accent:#5cc8ff; --accent-2:#7a8cff; --curve:14px; --shadow:0 12px 30px rgba(2,8,23,.6);
+  --bg:#07142a; --bg-2:#0b233f; --card:#0f2646; --muted:#dbf1d8; --text:#15e665;
+  --accent:#5cc8ff; --accent-2:#5bca2f; --curve:14px; --shadow:0 12px 30px rgba(2,8,23,.6);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -279,3 +279,4 @@ body {
     justify-content: center;
   }
 }
+
