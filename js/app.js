@@ -1244,6 +1244,7 @@ function renderExams(){
   <td data-label="التاريخ">${escapeHtml(e.date)}</td>
   <td data-label="الوقت">${escapeHtml(e.time)}</td>
   <td data-label="اليوم">${escapeHtml(e.day)}</td>
+    <td data-label="نوع الامتحان">${escapeHtml(e.examType)}</td>
   <td data-label="نوع الامتحان">${escapeHtml(e.session)}</td>
   <td data-label="اسم الامتحان">${escapeHtml(e.name)}</td>
   <td data-label="القسم">${escapeHtml(e.dept)}</td>
