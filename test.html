@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>امتحانات— أفق التقنية</title> 
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- أيقونات -->
+  <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+  <link rel="shortcut icon" href="logo.png">
+    <style>
+    .quiz-container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: var(--curve);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: var(--curve);
+      border: 1px solid var(--accent);
+      background: var(--bg-2);
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .question-card {
+      margin-bottom: 25px;
+      padding: 20px;
+      border-radius: var(--curve);
+      background: var(--bg-2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .question-text {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .options label {
+      display: block;
+      background: var(--card);
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: var(--curve);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .options input {
+      display: none;
+    }
+
+    .options label:hover {
+      background: var(--accent-2);
+      color: #fff;
+    }
+
+    .options input:checked + label {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-submit {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 25px;
+      border: none;
+      border-radius: var(--curve);
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background: var(--accent-2);
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: var(--curve);
+      background: var(--bg-2);
+      text-align: center;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+<body data-page="notes">
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="index.html"><img src="logo.png" alt="logo"><span> أفق التقنية</span></a>
+      <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="departments.html">الأقسام</a>
+        <a href="courses.html">الدورات</a>
+        <a href="notes.html" class="active">الملازم</a>
+        <a href="exams-calendar.html">تقويم الامتحانات</a>
+        <a href="medical-culture.html">الثقافة الطبية</a>
+      </nav>
+    </div>
+  </header>
+<div class="quiz-container">
+  <div class="quiz-header">
+    
+    <h2>اختبارات الكلية</h2>
+    <p>القسم: <strong>التخدير</strong> — المرحلة الثالثة</p>
+  </div>
+
+  <!-- الفلاتر -->
+  <div class="filters">
+    <select id="subject">
+      <option value="">اختر المادة</option>
+      <option value="devices">أجهزة نظري</option>
+      <option value="care">عناية نظري</option>
+      <option value="anesthesia">تخدير نظري</option>
+      <option value="internal">باطني نظري</option>
+      <option value="surgery">جراحة نظري</option>
+    </select>
+
+    <select id="booklet">
+      <option value="">اختر الملزمة</option>
+      <option value="1">ملزمة 1</option>
+      <option value="2">ملزمة 2</option>
+      <option value="3">ملزمة 3</option>
+      <option value="4">ملزمة 4</option>
+      <option value="5">ملزمة 5</option>
+      <option value="6">ملزمة 6</option>
+    </select>
+  </div>
+
+  <!-- مكان الأسئلة -->
+  <div id="questions"></div>
+
+  <button class="btn-submit" onclick="checkAnswers()">إرسال</button>
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  // قاعدة بيانات أسئلة وهمية
+  const quizzes = {
+    "devices-1": [
+      { q: "ما هو الجهاز المستخدم لمراقبة ضربات القلب؟",
+        options: {a: "جهاز التنفس", b: "المونيتور", c: "جهاز الصدمات"},
+        answer: "b" },
+      { q: "ما وحدة قياس ضغط الدم؟",
+        options: {a: "ملليمتر زئبق", b: "كيلو باسكال", c: "بار"},
+        answer: "a" }
+    ],
+    "care-1": [
+      { q: "أي من التالي يعتبر جزءاً من العناية المركزة؟",
+        options: {a: "الأوكسجين", b: "الماء", c: "الكهرباء"},
+        answer: "a" },
+      { q: "ما الهدف من جهاز التنفس الصناعي؟",
+        options: {a: "زيادة معدل ضربات القلب", b: "مساعدة التنفس", c: "خفض الحرارة"},
+        answer: "b" }
+    ],
+    "anesthesia-1": [
+      { q: "ما الغاز الأكثر استخداماً في التخدير؟",
+        options: {a: "أوكسجين", b: "ثاني أوكسيد الكربون", c: "نتروس أوكسيد"},
+        answer: "c" },
+      { q: "ما وظيفة جهاز التخدير؟",
+        options: {a: "تزويد المريض بالأدوية", b: "إدارة الغازات", c: "قياس النبض"},
+        answer: "b" }
+    ],
+    "internal-1": [
+      { q: "ما هو العضو المسؤول عن تنقية الدم؟",
+        options: {a: "الكبد", b: "الكلى", c: "الرئة"},
+        answer: "b" },
+      { q: "أي مرض يسبب ارتفاع السكر في الدم؟",
+        options: {a: "السكري", b: "الضغط", c: "الأنيميا"},
+        answer: "a" }
+    ],
+    "surgery-1": [
+      { q: "ما الأداة الأساسية في العمليات الجراحية؟",
+        options: {a: "المشرط", b: "المنظار", c: "المقص"},
+        answer: "a" },
+      { q: "لماذا يستخدم الخيط الجراحي؟",
+        options: {a: "للتثبيت", b: "لإغلاق الجروح", c: "للتنظيف"},
+        answer: "b" }
+    ]
+    // يمكن نسخ هذه النماذج وتغيير نص السؤال للملزمة 2–6
+  };
+
+  // تحميل الأسئلة حسب الاختيار
+  document.querySelectorAll("#subject,#booklet").forEach(select => {
+    select.addEventListener("change", loadQuiz);
+  });
+
+  function loadQuiz() {
+    const subject = document.getElementById("subject").value;
+    const booklet = document.getElementById("booklet").value;
+    const key = `${subject}-${booklet}`;
+    const container = document.getElementById("questions");
+    container.innerHTML = "";
+
+    if (quizzes[key]) {
+      quizzes[key].forEach((q, i) => {
+        const card = document.createElement("div");
+        card.className = "question-card";
+        card.setAttribute("data-answer", q.answer);
+
+        let html = `<div class="question-text">${i + 1}. ${q.q}</div><div class="options">`;
+        for (let opt in q.options) {
+          html += `
+            <input type="radio" id="q${i}${opt}" name="q${i}" value="${opt}">
+            <label for="q${i}${opt}">${q.options[opt]}</label>
+          `;
+        }
+        html += `</div>`;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+    } else {
+      container.innerHTML = "<p>لا توجد أسئلة لهذه الملزمة حالياً.</p>";
+    }
+  }
+
+  function checkAnswers() {
+    let cards = document.querySelectorAll('.question-card');
+    let correct = 0;
+
+    cards.forEach(card => {
+      let answer = card.getAttribute('data-answer');
+      let selected = card.querySelector('input:checked');
+
+      if (selected && selected.value === answer) {
+        correct++;
+        card.style.border = "2px solid limegreen";
+      } else {
+        card.style.border = "2px solid crimson";
+      }
+    });
+
+    document.getElementById('result').innerText =
+      `لقد أجبت بشكل صحيح على ${correct} من ${cards.length} أسئلة.`;
+  }
+</script>
+
+</body>
+</html>
