@@ -9,8 +9,8 @@ const DB = {
       about: "قسم متخصص بالعناية والتخدير.",
       stages: ["Stage 2", "Stage 3.1"],
       teachers: ["د. ليث", "د.عادل"]
-    }
-  
+    },
+    
   ],
 
   // 🚩 الدورات (courses)
@@ -21,7 +21,7 @@ const DB = {
       title: "التخدير الوزاري",
       desc: "دورة أونلاين لشرح مادة التخدير الوزارية",
       subject: "تخدير",
-      stage: "Stage 3.2",
+      stage: "Stage 3.1",
       dept: "anesthesia",
       thumb: "an.png",
       lessons: [
@@ -37,8 +37,8 @@ const DB = {
         }
       ]
     },
-{
-  id: "ana3.2",
+    {
+  id: "ana3.1",
   title: "العناية وزاري مرحلة ثالثة",
   desc: "قائمة تشغيل لفديوهات دكتور حسام في مادة العناية للمرحلة الثالثة",
   subject: "عناية وزاري",
@@ -93,6 +93,9 @@ const DB = {
       yt: "Mg1YYp0GJMI"
     }
   ]
+},
+
+
   ],
 
   // 🚩 الملازم (notes)
@@ -509,33 +512,27 @@ const DB = {
   ]
 },
 
+// المنشور 3
 
-
-
-
-
-
-// المصطلح 1
+// المنشور 4
 {
-  id: "t1",
+  id: "p4",
   type: "term",
-  title: "Hypertension (ارتفاع ضغط الدم)",
-  excerpt: "زيادة ضغط الدم عن المعدل الطبيعي.",
-  image: "https://i.pinimg.com/736x/44/cd/28/44cd28d2ee939a0de4d1a0907562bb60.jpg",
+  title: "ضغط دم مرتفع (Hypertension)",
+  excerpt: "زيادة ضغط الدم عن الطبيعي.",
+  image: "https://i.pinimg.com/1200x/58/5f/07/585f07ca7d1ed41e41da7e35821502fc.jpg",
   body: [
-    "ارتفاع ضغط الدم هو حالة مزمنة حيث يكون ضغط الدم في الشرايين أعلى من الطبيعي.",
-    "مثال: شخص لديه ضغط 150/95 ملم زئبق يعتبر مصابًا بارتفاع ضغط الدم.",
-    "شرح بسيط: عندما تكون الشرايين ضيقة أو صعبة التمدد، يزداد الضغط داخلها.",
-    "طريقة الفهم: تخيل أن الماء في خرطوم الحديقة يضغط أكثر عندما يكون الخرطوم ضيقًا.",
+    "ارتفاع ضغط الدم من أكثر الأمراض المزمنة شيوعًا في العالم.",
+    "قد لا يشعر المريض بأي أعراض واضحة، لكنه يزيد من خطر السكتة الدماغية والنوبات القلبية.",
+    "الوقاية تشمل ممارسة الرياضة بانتظام، تناول غذاء صحي، وتجنب التوتر.",
+    "المتابعة الدورية لقياس الضغط مهمة للسيطرة على المرض.",
     {
       type: "link",
-      text: "راجع أيضًا: أوكسيفينيا (Hypoxemia)",
-      to: "t2"
+      text: "شاهد أيضًا: التغذية السليمة للطلاب",
+      to: "p5"
     }
   ]
 },
-
-
 
 // المصطلح 3
 {
@@ -1102,7 +1099,7 @@ function renderCourseDetails(){
   if(!course) return $('#courseTitle').textContent = 'الدورة غير موجودة';
   $('#courseTitle').textContent = course.title;
   $('#courseThumb').src = course.thumb;
-  $('#courseMeta').innerHTML = `<span class="chip">${escapeHtml(course.subject)}</span><span class="chip">${escapeHtml(course.stage)}</span><span class="chip">${escapeHtml(course.dept)}</span>`;
+  $('#courseMeta').innerHTML = `<span class="chip">${escapeHtml(course.subject)}</span><span class="chip">${escapeHtml(course.stage)}</span><span class="chip">${escapeHtml(course.doctor)}</span><span class="chip">${escapeHtml(course.dept)}</span>`;
   const listEl = $('#lessonList'); listEl.innerHTML = '';
   course.lessons.forEach((l, idx)=>{
     const watchedKey = `watched:${courseId}:${l.id}`;
@@ -1251,7 +1248,6 @@ function renderCulturePostPage(){
     <div class="article-hero">
       <h1>${escapeHtml(post.title)}</h1>
       <div class="article-meta"><span>${escapeHtml(post.type)}</span><span class="muted">قابل للقراءة</span></div>
-    
     </div>
     <div class="article-body">
       ${escapeHtml(post.body).replace(/\n/g,'<br><br>')}
@@ -1344,5 +1340,3 @@ document.querySelectorAll('.modal-close').forEach(btn => {
     modal.classList.remove('show');
   });
 });
-
-
