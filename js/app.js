@@ -21,7 +21,7 @@ const DB = {
       title: "التخدير الوزاري",
       desc: "دورة أونلاين لشرح مادة التخدير الوزارية",
       subject: "تخدير",
-      stage: "Stage 3",
+      stage: "Stage 3.2",
       dept: "anesthesia",
       thumb: "an.png",
       lessons: [
@@ -37,7 +37,62 @@ const DB = {
         }
       ]
     },
-
+{
+  id: "ana3.2",
+  title: "العناية وزاري مرحلة ثالثة",
+  desc: "قائمة تشغيل لفديوهات دكتور حسام في مادة العناية للمرحلة الثالثة",
+  subject: "عناية وزاري",
+  stage: "Stage 3.1",
+  dept: "anesthesia",
+  thumb: "an2.PNG",
+  doctor: "د. حسام",
+  lessons: [
+    {
+      id: "ana3L1",
+      title: "Respiratory monitoring",
+      yt: "HQSBcsyGp6s"
+    },
+    {
+      id: "ana3L2",
+      title: "ARDS and ALI",
+      yt: "fHKk0elS438"
+    },
+    {
+      id: "ana3L3",
+      title: "COPD and Acute asthma",
+      yt: "4G025boFktM"
+    },
+    {
+      id: "ana3L4",
+      title: "Arterial Blood Gas Analysis ABG",
+      yt: "S49wI1Nd2Tc"
+    },
+    {
+      id: "ana3L5",
+      title: "Cardiopulmonary resuscitation CPR",
+      yt: "adXy666nh1Q"
+    },
+    {
+      id: "ana3L6",
+      title: "Mechanical Ventilation in Brain Injured Patients",
+      yt: "YCK77rQJDr4"
+    },
+    {
+      id: "ana3L7",
+      title: "Fluid therapy for critical ill patient",
+      yt: "tbi59UK4yPU"
+    },
+    {
+      id: "ana3L8",
+      title: "Blood transfusion",
+      yt: "OSXIWigGAEg"
+    },
+    {
+      id: "ana3L9",
+      title: "Status epilepticus",
+      yt: "Mg1YYp0GJMI"
+    }
+  ]
   ],
 
   // 🚩 الملازم (notes)
@@ -1289,4 +1344,5 @@ document.querySelectorAll('.modal-close').forEach(btn => {
     modal.classList.remove('show');
   });
 });
+
 
