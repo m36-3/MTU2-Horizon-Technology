@@ -47,7 +47,7 @@ nav a:hover, nav a.active{color:var(--text);background:linear-gradient(90deg, rg
 
   /* وهج حول اللوغو */
   filter: drop-shadow(0 0 10px var(--accent))
-          drop-shadow(0 0 20px rgba(92, 200, 255, 0.4));
+          drop-shadow(0 0 20px rgba(252, 185, 1, 0.555));
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -55,7 +55,7 @@ nav a:hover, nav a.active{color:var(--text);background:linear-gradient(90deg, rg
 .logo img:hover {
   transform: scale(1.05);
   filter: drop-shadow(0 0 15px var(--accent))
-          drop-shadow(0 0 25px rgba(92, 200, 255, 0.6));
+          drop-shadow(0 0 25px rgba(137, 214, 14, 0.6));
 }
 /* الخلفية للموقع بالكامل */
 body {
@@ -67,7 +67,7 @@ body {
     /* دمج الصورة مع طبقة شفافة لتقليل ظهورها إلى 15% */
     background-image: 
         linear-gradient(rgba(7,20,42,0.85), rgba(7,20,42,0.85)), /* طبقة تغطية لتقليل وضوح الصورة */
-        url('logo.png'); /* ضع رابط الصورة الشفافة هنا */
+        url('logo.PNG'); /* ضع رابط الصورة الشفافة هنا */
         
     background-size: cover;        
     background-repeat: no-repeat;  
@@ -495,3 +495,89 @@ body {
     justify-content: center;
   }
 }
+
+    /* تحسينات خاصة بالأسئلة */
+    .quiz-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: var(--curve);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .question-card {
+      margin-bottom: 25px;
+      padding: 20px;
+      border-radius: var(--curve);
+      background: var(--bg-2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .question-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+
+    .question-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+
+    .options label {
+      display: block;
+      background: var(--card);
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: var(--curve);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .options input {
+      display: none;
+    }
+
+    .options label:hover {
+      background: var(--accent-2);
+      color: #fff;
+    }
+
+    .options input:checked + label {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: var(--curve);
+      background: var(--bg-2);
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .btn-submit {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 25px;
+      border: none;
+      border-radius: var(--curve);
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: var(--accent-2);
+    }
