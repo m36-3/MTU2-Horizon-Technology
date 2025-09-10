@@ -1,128 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>أفق التقنية — الرئيسية</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- أيقونة قياسية -->
-<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
-
-<!-- أيقونة لأجهزة أبل -->
-<link rel="apple-touch-icon" sizes="180x180" href="logo.png">
-
-<!-- أيقونة افتراضية -->
-<link rel="shortcut icon" href="logo.png">
-
-</head>
-<body data-page="home">
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="index.html">
-        <img src="logo.png" alt="logo">
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
-
-        <span> أُفق التقنية</span>
-      </a>
-      <nav>
-        <a href="index.html" class="active">الرئيسية</a>
-        <a href="departments.html">الأقسام</a>
-        <a href="courses.html">الدورات</a>
-        <a href="notes.html">الملازم</a>
-        <a href="exams-calendar.html">تقويم الامتحانات</a>
-        <a href="medical-culture.html">الثقافة الطبية</a>
-        <a href="test.html">امسيكيو خاص للتخدير</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div class="hero-left">
-        <h1>مرحبًا بك في <span class="grad">أُفق التقنية</span></h1>
-        <p class="muted">
-كلشي تحت سقف واحد!<br>
-📚 دورات تعليمية ومناهج<br>
-📝 ملازم وملاحظات مهمة<br>
-⏰ مواعيد الامتحانات والتقويم<br>
-💡 مقالات ونصائح الثقافة الطبية
-</p>
-
-        <form id="homeSearchForm" class="searchbar">
-          <input id="homeSearch" type="search" placeholder="ابحث عن دورة، مذكرة أو موضوع ثقافي..." />
-          <button class="btn">بحث</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <h2>دورات مميزة</h2>
-        <a class="link" href="courses.html">عرض الكل →</a>
-      </div>
-      <div id="homeCourses" class="grid grid-3"></div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <h2>ملازم حديثة</h2>
-        <a class="link" href="notes.html">عرض الكل →</a>
-      </div>
-      <div id="homeNotes" class="grid grid-3"></div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <h2>مقالات الثقافة الطبية</h2>
-        <a class="link" href="medical-culture.html">عرض الكل →</a>
-      </div>
-      <div id="homeCulture" class="grid grid-3"></div>
-    </section>
-  </main>
-<footer class="site-footer">
-  <div class="container footer-flex">
-   <!-- تواصل معي -->
-    <div class="footer-section">
-      <h3>تواصل معي</h3>
-      <div class="social-links">
-        
-        <a href="https://instagram.com/حساب_الموقع" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"> (غير متوفر حاليا)انستغرام الموقع
-        </a>
-        <a href="https://t.me/M36_360BOT" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg" alt="Telegram"> بوت التواصل
-        </a>
-        <a href="https://t.me/M36_3" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg" alt="Telegram"> حسابي الشخصي 
-        </a>
-        <a href="https://www.instagram.com/36e_3?igsh=am9tbWR1N3ZsODZz" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"> حسابي الشخصي
-        </a>
-        
-      </div>
-    </div>
-
-    <!-- تعلم معنا -->
-    <div class="footer-section">
-      <h3>تعلم كيفية استخدام الموقع</h3>
-      <div class="social-links">
-        <a href="https://www.youtube.com/playlist?list=معرّف_قائمة_التشغيل" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"> (غير متوفرة حاليا)قائمة تشغيل يوتيوب
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-    <div class="container footer-bottom">
-    © <span id="year"></span> بوابة كلية التقنيات الصحية والطبية
-  </div>
-</footer>
-
-
-  <script src="js/app.js"></script>
-</body>
-</html>
-
