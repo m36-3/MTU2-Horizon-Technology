@@ -55,7 +55,7 @@ nav a:hover, nav a.active{color:var(--text);background:linear-gradient(90deg, rg
 .logo span:hover {
   text-shadow: 
     0 0 12px var(--accent-2),
-    0 0 22px rgba(122, 140, 255, 1),
+    0 0 22px rgb(235, 27, 12),
     3px 3px 8px rgba(0, 0, 0, 0.8);
 }
 .logo span {
@@ -144,7 +144,7 @@ body {
   text-decoration:none;
   padding:4px 6px;
   border-radius:6px;
- background-color:rgba(252, 248, 5, 0.521);
+  background-color:rgba(252, 248, 5, 0.521);
   margin-bottom:4px;
   transition:background .3s;
 }
@@ -279,5 +279,74 @@ body {
   }
 }
 
+/* تنسيق اللوغو */
+.logo img {
+  width: 90px;      /* حجم مناسب */
+  height: auto;
+  background: transparent; /* خلفية شفافة */
+  border-radius: var(--curve);
+  padding: 5px;
 
+  /* وهج حول اللوغو */
+  filter: drop-shadow(0 0 10px var(--accent))
+          drop-shadow(0 0 20px rgba(252, 185, 1, 0.555));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
+/* تأثير عند مرور الماوس */
+.logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px var(--accent))
+          drop-shadow(0 0 25px rgba(137, 214, 14, 0.6));
+}
+/* الخلفية للموقع بالكامل */
+body {
+    margin: 0; 
+    padding: 0;
+    min-height: 100vh;
+    font-family: sans-serif;
+
+    /* دمج الصورة مع طبقة شفافة لتقليل ظهورها إلى 15% */
+    background-image: 
+        linear-gradient(rgba(7,20,42,0.85), rgba(7,20,42,0.85)), /* طبقة تغطية لتقليل وضوح الصورة */
+        url('logo.PNG'); /* ضع رابط الصورة الشفافة هنا */
+        
+    background-size: cover;        
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-attachment: fixed;  /* تأثير parallax بسيط */
+    
+    background-color: var(--bg);  /* يظهر تحت الصورة الشفافة */
+}
+
+/* للتأكد أن أي محتوى يظهر فوق الخلفية */
+* {
+    box-sizing: border-box;
+}
+
+/* النص بجانب اللوغو */
+.logo span {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent); /* اللون الأساسي */
+
+  /* توهج بلون ثانوي + ظل */
+  text-shadow: 
+    0 0 8px var(--accent-2),              /* توهج أولي بلون ثانوي */
+    0 0 15px rgba(122, 140, 255, 0.8),    /* توهج بنفسجي أزرق ناعم */
+    2px 2px 6px rgba(0, 0, 0, 0.7);       /* ظل خلف النص */
+
+  margin-left: 10px;
+  transition: text-shadow 0.3s ease;
+}
+
+/* تأثير عند مرور الماوس */
+.logo span:hover {
+  text-shadow: 
+    0 0 12px var(--accent-2),
+    0 0 22px rgba(122, 140, 255, 1),
+    3px 3px 8px rgba(0, 0, 0, 0.8);
+}
+.logo span {
+  font-family: 'Cairo', sans-serif;
+}
